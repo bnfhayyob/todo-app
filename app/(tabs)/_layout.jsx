@@ -1,19 +1,26 @@
 import { Ionicons } from '@expo/vector-icons'
+import { useTheme } from '@react-navigation/native'
 import { Tabs } from 'expo-router'
 
 const TabsLayout = () => {
+    const {colors} = useTheme()
     return (
         <Tabs screenOptions={{
-            tabBarActiveTintColor:"red",
-            tabBarInactiveTintColor:"green",
+            tabBarActiveTintColor:colors.primary,
+            tabBarInactiveTintColor:colors.textMuted,
             tabBarStyle:{
-                backgroundColor:"#1e293b",
+                backgroundColor:colors.surface,
                 borderTopWidth:1,
-                borderTopColor:"yellow",
+                borderTopColor:colors.border,
                 height:90,
                 paddingBottom:30,
                 paddingTop:10,
-            }
+            },
+            tabBarLabelStyle:{
+                fontSize:12,
+                fontWeight:"600",
+            },
+            headerShown:false
         }}>
             <Tabs.Screen
                 name='index'
